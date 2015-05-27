@@ -1,0 +1,47 @@
+Qva.LoadCSS(Qva.Remote + (Qva.Remote.indexOf('?') >= 0 ? '&' : '?') + 'public=only' + '&name=' + "Extensions/Test/lib/css/style.css");
+
+// Global Default Settings
+var _MaxRecords_Default = 250;
+var _Label_Submit = 'Submit';
+
+
+//Qv.LoadExtensionScripts('/QvAjaxZfc/QvsViewClient.aspx?public=only&name=Extensions/RBIPAT/jquery-1.10.2.min.js');
+//Qva.LoadScript('/QvAjaxZfc/QvsViewClient.aspx?public=only&name=Extensions/RBIPAT/opencpu-0.4.js');
+//Qva.LoadScript('/QvAjaxZfc/QvsViewClient.aspx?public=only&name=Extensions/RBIPAT/jquery-1.10.2.min.js');
+
+/*  if (typeof jQuery == 'undefined') {
+        Qva.LoadScript('/QvAjaxZfc/QvsViewClient.aspx?public=only&name=Extensions/RBIPAT/jquery-1.10.2.min.js', function(){
+            Qva.LoadScript('/QvAjaxZfc/QvsViewClient.aspx?public=only&name=Extensions/RBIPAT/opencpu-0.4.js', RBIPAT_Init);
+        });
+    }	 */
+function Test_Init() {
+	Qva.AddExtension("Test",
+        function () {
+	
+				$(_this.Element).empty();
+                var divExt = document.createElement("div");
+                divExt.setAttribute("id", "UniqueID");
+                divExt.style.width = _this.GetWidth() - 10 + 'px';
+                divExt.style.height = _this.GetHeight() + 'px';
+                divExt.setAttribute("class", "Test");
+
+                
+                var divButtonContainer = document.createElement("div");
+                divButtonContainer.setAttribute("class", "Test")
+
+                var divButton = document.createElement("a");
+                divButton.setAttribute("href", "javascript:void(0);");
+                divButton.setAttribute("id", "button_ID");
+                divButton.setAttribute("class", "CallEdxFromAjax_Button");
+                divButton.innerText = "Test";
+                divButton.addEventListener("click", button_click, false);
+                divButtonContainer.appendChild(divButton);
+
+                divExt.appendChild(divButtonContainer);
+		
+		function button_click() {
+
+            };
+	});
+	};
+	Test_Init();
